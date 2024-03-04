@@ -1,0 +1,115 @@
+/* || Artist thumb  */
+.artistContainer {
+    width:280px;
+    height:360px;
+    position: relative;
+    background: var(--white);
+    border: 1px solid var(--medium-light);
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Hover */
+.hover {
+    position: absolute;
+    width: 100%;
+    height :100%;
+}
+
+.hover:hover {
+    cursor: pointer;
+}
+
+/* Top half */
+.artistTop {
+    height: 200px;
+    padding: 15px;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-crop {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 50px;
+    margin-right:10px ;
+}
+
+.profile-Img {
+    width: 100%;
+}
+
+.name-location {
+    height: 100%;
+}
+
+.rate {
+    padding: 7px 15px;
+    border-radius: 7px;
+    font-size: 14px;
+    display: inline-block;
+    color: var(--purple);
+    background: var(--light-purple);
+    margin-bottom: 10px;
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 73px;
+    overflow: hidden;
+}
+
+.skills-list li {
+    list-style: none;
+    margin-right: 5px;
+    margin-bottom:5px ;
+    padding: 7px 15px;
+    border-radius: 30px;
+    background: var(--light-grey);
+}
+
+.skills-list li p {
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.artistContainer button {
+    position: absolute;
+    right: 5px;
+    font-size: 25px;
+    width: 30px;
+    height: 30px;
+}
+
+/* Bottom half */
+.artistBottom {
+    flex-grow: 1;
+}
+
+.artist-thumb-crop {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.artist-thumb-img {
+    width: 100%;
+    height: auto;
+}

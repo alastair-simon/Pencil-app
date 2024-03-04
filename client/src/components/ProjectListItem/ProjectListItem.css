@@ -1,0 +1,30 @@
+/* || Project thumbnail styles */
+
+.projectThumbWrap {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.projectThumb {
+    width: 270px;
+    height: 170px;
+    background: rgb(157, 78, 91);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.projectThumbWrap h3 {
+    font-size: 1.2rem;
+    margin-bottom: 3px;
+}
+
+.projectThumbWrap p {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    color: var(--medium-grey);
+    text-transform: capitalize;
+}
+
+
+

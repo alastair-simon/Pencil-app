@@ -1,0 +1,10 @@
+.title {
+    width: 100%;
+    height: 70px;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1.5px solid var(--medium-light);
+    padding-left: 30px;
+}

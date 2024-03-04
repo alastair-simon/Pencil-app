@@ -1,0 +1,24 @@
+/* || Project list */
+
+.filter-addproject {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-project {
+    width: 140px;
+    height: 50px;
+    background:  var(--light-grey);
+    color: var(-off-black);
+    border-radius: 30px;
+    margin-left:auto;
+    margin-right: 50px;
+}
+
+.selected {
+    margin-left: 70px;
+    padding: 10px;
+}
