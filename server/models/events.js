@@ -18,10 +18,13 @@ const artistSchema = new Schema({
 
 const projectSchema = new Schema({
   projectOwner: String,
-  description:String,
+  description: String,
   projectName: String,
   numberContributors: Number,
-  artists: [artistSchema],
+  artists: {
+    type: mongoose.ObjectId,
+    ref: "Artist",
+  },
 });
 
 // const usersSchema = new Schema({
@@ -29,18 +32,23 @@ const projectSchema = new Schema({
 //   profileImg: String
 // });
 
-// const pastWorkSchema = new Schema({
-//   description: String,
-//   images: [String]
-// });
-
 const artistLikes = new Schema({
-  artistsInfo: {
+  artist: {
     type: mongoose.ObjectId,
     ref: "Artist",
   },
-  numberOfLikes: Number,
-  numberOfDislikes: Number
+  numberOfLikes: {
+    type: Number,
+    default: 0,
+  },
+  numberOfDislikes: {
+    type: Number,
+    default: 0,
+  },
+  project: {
+    type: mongoose.ObjectId,
+    ref: "Projects",
+  },
 });
 
 const Artist = mongoose.model("Artist", artistSchema);
