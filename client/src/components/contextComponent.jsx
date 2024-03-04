@@ -1,17 +1,20 @@
 // contextComponent.js
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { fetchArtists } from "../ApiService.js";
+import { fetchArtists, fetchProjects } from "../ApiService.js";
 
 const ArtistListContext = createContext({});
 
 export function ContextComponent({ children }) {
   const [fullArtists, setFullArtists] = useState([]);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     async function fetchAndSet() {
       try {
-        const data = await fetchArtists();
-        setFullArtists(data);
+        const artistData = await fetchArtists();
+        setFullArtists(artistData);
+        // const projectData = fetchProjects();
+        // setProjects(projectData)
       } catch (error) {
         console.error("Error fetching artists:", error);
       }
@@ -26,4 +29,4 @@ export function ContextComponent({ children }) {
   );
 }
 
-export const useArtistsContext = () => useContext(ArtistListContext);
+export const useMainContext = () => useContext(ArtistListContext);

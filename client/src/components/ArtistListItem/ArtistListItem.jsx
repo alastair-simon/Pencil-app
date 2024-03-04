@@ -11,10 +11,7 @@ export function ArtistListItem({ artist }) {
 
   return (
     <div className="artistContainer">
-      <div className="hover">
-        <DropDownList onSelectProject={handleClick} />
-      </div>
-
+        <DropDownList onSelectProject={handleClick} className="add" />
       <div className="artistTop">
         <div className="profile-details">
           <div className="profile-crop">
@@ -22,14 +19,17 @@ export function ArtistListItem({ artist }) {
           </div>
           <div className="name-location">
             <h4>{artist.name}</h4>
-            <h4>{artist.location}</h4>
+            {/* <h4>{artist.location}</h4> */}
           </div>
         </div>
-          <div className="rate">
-            <p>{artist.rate}</p>
-          </div>
+        {/* <div className="rate">
+          <p>{artist.rate}</p>
+        </div> */}
         <div>
-          <ul className="skills-list">
+          <div className="fill">
+            <li className="main-skill">{artist.mainSkill}</li>
+          </div>
+          {/* <ul className="skills-list">
             {artist.skills.map((skill, i) => {
               return (
                 <li key={i}>
@@ -37,7 +37,7 @@ export function ArtistListItem({ artist }) {
                 </li>
               );
             })}
-          </ul>
+          </ul> */}
         </div>
       </div>
 

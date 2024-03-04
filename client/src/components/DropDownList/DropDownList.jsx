@@ -21,25 +21,28 @@ export function DropDownList({ onSelectProject }) {
 
   const handleProjectSelect = (projectId) => {
     setSelectedProject(projectId);
-    onSelectProject(projectId); 
+    onSelectProject(projectId);
     setIsDropdownOpen(false);
   };
 
   return (
     <div className="dropdown">
-      <button onClick={toggleDropdown}>
-        +
-      </button>
+      <button onClick={toggleDropdown}>ADD TO LIST</button>
       {isDropdownOpen ? (
-        <ul className="dropdown-content">
-          {projects.map((project, i) => {
-            return (
-              <li key={i} onClick={() => handleProjectSelect(project._id)}>
-                <a>{project.projectName}</a>
-              </li>
-            );
-          })}
-        </ul>
+        <>
+          <div className="dropdown-content">
+            <h4>Your projects</h4>
+            <ul>
+              {projects.map((project, i) => {
+                return (
+                  <li key={i} onClick={() => handleProjectSelect(project._id)}>
+                    <a>{project.projectName}</a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </>
       ) : null}
     </div>
   );

@@ -1,19 +1,16 @@
 import { fetchArtists, updateLikes, updateDislikes } from "../../ApiService";
 import { useState, useEffect } from "react";
 import React, { useContext } from "react";
-import { useArtistsContext } from "../contextComponent.jsx";
+import { useMainContext } from "../contextComponent.jsx";
 import "./ProjectDetailsItem.css";
 
 export function ProjectDetailsItem({ artist }) {
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
-  // const [fullArtists, setFullArtists] = useState([]);
-  const { fullArtists, setFullArtists } = useArtistsContext();
+  const { fullArtists, setFullArtists } = useMainContext();
 
   useEffect(() => {
     async function fetchAndSet() {
-      const data = await fetchArtists();
-      setFullArtists(data);
       setLikes(artist.numberOfLikes);
       setDislikes(artist.numberOfDislikes);
     }

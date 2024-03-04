@@ -25,9 +25,9 @@ export function Nav() {
     >
       <ul>
         <li className="logo">
-          {/* <Link to="/"> */}
+          <Link to="/">
             <img src={logo} className="nav-icon" alt="Logo" />
-          {/* </Link> */}
+          </Link>
         </li>
         <li>
           <Link to="/artistList">
