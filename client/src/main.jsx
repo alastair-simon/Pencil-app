@@ -7,15 +7,19 @@ import { ProjectDetails} from './components/ProjectDetails/ProjectDetails.jsx';
 import { Nav } from './components/NavBar/Nav.jsx';
 import './index.css'
 import App from './App.jsx'
+import { ContextComponent } from './components/contextComponent.jsx';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Router>
-      <Nav />
+
+    <Nav />
+    <ContextComponent >
       <Routes>
         <Route path="/" exact element={<App />} />
         <Route path="/artistList" element={<ArtistList />} />
         <Route path="/projectList" element={<ProjectList />} />
         <Route path="/projectDetails/:id" element={<ProjectDetails />} />
-      </Routes>
+    </Routes>
+    </ContextComponent>
   </Router>
 );

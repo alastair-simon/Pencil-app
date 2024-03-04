@@ -32,6 +32,7 @@ export function ProjectDetails() {
         <p>team members</p>
         <p>votes</p>
       </div>
+      
       <ul className="project-details-List">
         {likedArtists.map((artist, i) => {
           return <ProjectDetailsItem key={i} artist={artist} />;

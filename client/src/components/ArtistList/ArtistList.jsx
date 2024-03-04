@@ -4,11 +4,13 @@ import { ArtistListItem } from "../ArtistListItem/ArtistListItem.jsx";
 import "./ArtistList.css";
 import { PageTitle } from "../PageTitle/pageTitle.jsx";
 import { SearchBar } from "../SearchBar/SearchBar.jsx";
+import { useArtistsContext } from "../contextComponent.jsx";
 
 export function ArtistList() {
   const [artists, setArtists] = useState([]);
-  const [fullArtists, setFullArtists] = useState([]);
+  // const [fullArtists, setFullArtists] = useState([]);
   const [isActive, setIsActive] = useState([]);
+  const { fullArtists, setFullArtists } = useArtistsContext()
 
   useEffect(() => {
     async function fetchAndSet() {

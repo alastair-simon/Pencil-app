@@ -1,3 +1,5 @@
+/* || Project details styles */
+
 .projectItemWrap {
     border: 2px solid var(--medium-light);
     width: 100%;
@@ -25,3 +27,6 @@
     padding: 10px;
 }
 
+.artist-image{
+    width: 40px;
+}

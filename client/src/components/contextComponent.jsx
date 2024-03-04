@@ -1,10 +1,10 @@
 // contextComponent.js
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 import { fetchArtists } from "../ApiService.js";
 
-const ArtistListContext = createContext();
+const ArtistListContext = createContext({});
 
-export function ContextComponent ({ children }) {
+export function ContextComponent({ children }) {
   const [fullArtists, setFullArtists] = useState([]);
 
   useEffect(() => {
@@ -24,4 +24,6 @@ export function ContextComponent ({ children }) {
       {children}
     </ArtistListContext.Provider>
   );
-};
+}
+
+export const useArtistsContext = () => useContext(ArtistListContext);

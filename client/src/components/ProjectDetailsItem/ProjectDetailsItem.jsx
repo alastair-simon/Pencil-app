@@ -1,14 +1,14 @@
 import { fetchArtists, updateLikes, updateDislikes } from "../../ApiService";
 import { useState, useEffect } from "react";
-import "./ProjectDetailsItem.css";
 import React, { useContext } from "react";
-import { ContextComponent } from "../contextComponent";
-
+import { useArtistsContext } from "../contextComponent.jsx";
+import "./ProjectDetailsItem.css";
 
 export function ProjectDetailsItem({ artist }) {
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
-  const [fullArtists, setFullArtists] = useState([]);
+  // const [fullArtists, setFullArtists] = useState([]);
+  const { fullArtists, setFullArtists } = useArtistsContext();
 
   useEffect(() => {
     async function fetchAndSet() {
@@ -46,10 +46,20 @@ export function ProjectDetailsItem({ artist }) {
    return searched ? searched.name : "Artist Not Found";
  }
 
+  function getArtistImage(name) {
+   const searched = fullArtists.find((fullArtist) => fullArtist._id === name);
+   return searched ? searched.profileImg : "Artist Not Found";
+ }
 
   return (
     <div className="projectItemWrap">
+      <div className="">
+      <div className="img-crop">
+        <img src={getArtistImage(artist.artist)} className="artist-image"></img>
+      </div>
       <p>{getArtistName(artist.artist)}</p>
+      </div>
+
       <div className="project-collaborators">
         <img src="" />
       </div>
