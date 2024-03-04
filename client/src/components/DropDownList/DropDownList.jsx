@@ -21,8 +21,8 @@ export function DropDownList({ onSelectProject }) {
 
   const handleProjectSelect = (projectId) => {
     setSelectedProject(projectId);
-    onSelectProject(projectId); // Pass selected project ID to parent component
-    setIsDropdownOpen(false); // Close dropdown after selection
+    onSelectProject(projectId); 
+    setIsDropdownOpen(false);
   };
 
   return (

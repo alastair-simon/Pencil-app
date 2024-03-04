@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.svg"
-import artists from "../../assets/artists.svg"
+import logo from "../../assets/logo.svg";
+import artists from "../../assets/artists.svg";
 import projects from "../../assets/projects.svg";
 import "./Nav.css";
 import { useState } from "react";
 
 export function Nav() {
- const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
- const handleMouseEnter = () => {
-   setIsHovered(true);
- };
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
 
- const handleMouseLeave = () => {
-   setIsHovered(false);
- };
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
 
   return (
     <nav
@@ -26,19 +26,17 @@ export function Nav() {
       <ul>
         <li className="logo">
           <Link to="/">
-            <a>
-              <img src={logo} className="nav-icon" />
-            </a>
+            <img src={logo} className="nav-icon" alt="Logo" />
           </Link>
         </li>
         <li>
           <Link to="/artistList">
-            <img src={artists} className="nav-icon" />
+            <img src={artists} className="nav-icon" alt="Artists" />
           </Link>
         </li>
         <li>
           <Link to="/projectList">
-            <img src={projects} className="nav-icon" />
+            <img src={projects} className="nav-icon" alt="Projects" />
           </Link>
         </li>
 

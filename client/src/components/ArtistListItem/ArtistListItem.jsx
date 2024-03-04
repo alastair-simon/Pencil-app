@@ -3,7 +3,9 @@ import { addArtist } from "../../ApiService.js";
 import { DropDownList } from "../DropDownList/DropDownList.jsx";
 
 export function ArtistListItem({ artist }) {
-   async function handleClick(projectId) {
+
+  async function handleClick(projectId) {
+     //get context check if artist is already in list
      await addArtist(artist, projectId);
    }
 

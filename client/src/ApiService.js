@@ -1,5 +1,6 @@
 const artistsUrl = "http://localhost:3000/artists";
 const projectsUrl = "http://localhost:3000/projects";
+const artistLikes = "http://localhost:3000/projects/artistLikes";
 
 //Get artists
 export async function fetchArtists() {
@@ -12,7 +13,6 @@ export async function fetchArtists() {
   }
 }
 
-
 //Get projects
 export async function fetchProjects() {
   try {
@@ -24,7 +24,7 @@ export async function fetchProjects() {
   }
 }
 
-//Put todo
+//Add artist to list
 export async function addArtist(obj, projectId) {
   try {
     await fetch(projectsUrl + "/" + projectId, {
@@ -57,12 +57,14 @@ export async function postProject(project) {
   }
 }
 
-
   // Get likes
-  export async function updateLikes(artist) {
+  export async function getLikes(id) {
     try {
-      const response = await fetch(`/projects/artistLikes/artist`);
+      const response = await fetch(
+        `http://localhost:3000/projects/artistLikes/${id}`
+      );
       const data = await response.json();
+      console.log(data)
       return data;
     } catch (error) {
       console.error(error);
@@ -70,9 +72,9 @@ export async function postProject(project) {
   };
 
   // Update likes
-  export async function updateDislikes(artist) {
+  export async function updateLikes(id) {
     try {
-      await fetch(`/project/dislike/artist`, {
+      await fetch(`http://localhost:3000/projects/artistLikes/like/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -83,10 +85,10 @@ export async function postProject(project) {
     }
   };
 
-  // Update dislikes
-  const updateDislikes = async (action) => {
+  // Update Dislikes
+  export async function updateDislikes(id) {
     try {
-      await fetch(`/project/like/artist`, {
+      await fetch(`http://localhost:3000/projects/artistLikes/dislike/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -96,6 +98,3 @@ export async function postProject(project) {
       console.error(error);
     }
   };
-
-
-export default ArtistLikesComponent;
