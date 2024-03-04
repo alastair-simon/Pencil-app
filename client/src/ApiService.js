@@ -64,7 +64,7 @@ export async function postProject(project) {
         `http://localhost:3000/projects/artistLikes/${id}`
       );
       const data = await response.json();
-      console.log(data)
+      // console.log(data)
       return data;
     } catch (error) {
       console.error(error);

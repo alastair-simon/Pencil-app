@@ -4,24 +4,28 @@ import { getLikes } from "../../ApiService.js";
 import { ProjectDetailsItem } from "../ProjectDetailsItem/ProjectDetailsItem.jsx";
 import { PageTitle } from "../PageTitle/pageTitle.jsx";
 import "./ProjectDetails.css";
+import { fetchProjects } from "../../ApiService.js";
+
 
 export function ProjectDetails() {
   const [likedArtists, setLikedArtists] = useState([]);
+  const [projects, setProjects] = useState([])
   const { id } = useParams();
 
   useEffect(() => {
     async function fetchAndSet() {
       const likes = await getLikes(id);
-       setLikedArtists(likes);
+      setLikedArtists(likes);
+      const projects = await fetchProjects();
+     const projectTitle = projects.find((project) => project._id === id);
+      setProjects(projectTitle);
     }
     fetchAndSet();
   }, []);
 
   return (
     <div className="wrapper">
-      {/* {projects.map((project, i) => {
-        return <PageTitle key={i} page={project.projectName} />;
-      })} */}
+      <PageTitle page={projects.projectName} />
 
       <div className="titles">
         <p>Chosen artists</p>
@@ -30,10 +34,8 @@ export function ProjectDetails() {
       </div>
       <ul className="project-details-List">
         {likedArtists.map((artist, i) => {
-          return (
-            <ProjectDetailsItem key={i} artist={ artist} />
-        )
-      })}
+          return <ProjectDetailsItem key={i} artist={artist} />;
+        })}
       </ul>
     </div>
   );
