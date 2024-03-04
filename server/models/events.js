@@ -20,7 +20,8 @@ const projectSchema = new Schema({
   projectOwner: String,
   description: String,
   projectName: String,
-  numberContributors: Number,
+  startDate: Date,
+  endDate: Date,
   artists: {
     type: mongoose.ObjectId,
     ref: "Artist",
