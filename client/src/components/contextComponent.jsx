@@ -13,16 +13,21 @@ export function ContextComponent({ children }) {
       try {
         const artistData = await fetchArtists();
         setFullArtists(artistData);
-        const projectData = await fetchProjects();
-        setFullProjects(projectData)
       } catch (error) {
         console.error("Error fetching artists:", error);
+      }
+
+      try {
+        const projectData = await fetchProjects();
+        setFullProjects(projectData);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
       }
     }
     fetchAndSet();
   }, []);
 
-  
+
   return (
     <ArtistListContext.Provider value={{ fullArtists, setFullArtists, fullProjects, setFullProjects }}>
       {children}

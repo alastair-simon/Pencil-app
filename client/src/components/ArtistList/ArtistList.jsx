@@ -7,6 +7,7 @@ import { useMainContext } from "../contextComponent.jsx";
 import {Loading} from "../Loading/Loading.jsx";
 import "./ArtistList.css";
 
+
 export function ArtistList() {
   const { fullArtists, setFullArtists } = useMainContext();
   const [artists, setArtists] = useState([]);

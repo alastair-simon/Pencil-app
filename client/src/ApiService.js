@@ -17,7 +17,7 @@ export async function fetchProjects() {
   try {
     const response = await fetch(projectsUrl);
     const jsonData = await response.json();
-    console.log({ jsonData });
+    // console.log({ jsonData });
     return jsonData;
   } catch (error) {
     console.error(error);
