@@ -1,8 +1,10 @@
-import { fetchArtists, updateLikes, updateDislikes } from "../../ApiService";
+import { updateLikes, updateDislikes } from "../../ApiService";
 import { useState, useEffect } from "react";
-import React, { useContext } from "react";
 import { useMainContext } from "../contextComponent.jsx";
 import "./ProjectDetailsItem.css";
+import { PiThumbsUpLight } from "react-icons/pi";
+import { PiThumbsDownLight } from "react-icons/pi";
+
 
 export function ProjectDetailsItem({ artist }) {
   const [likes, setLikes] = useState(0);
@@ -16,9 +18,6 @@ export function ProjectDetailsItem({ artist }) {
     }
     fetchAndSet();
   }, []);
-
-
-  //  const { fullArtists } = useContext(ContextComponent);
 
   async function updateLikedArtist(id) {
     await updateLikes(id);
@@ -38,33 +37,42 @@ export function ProjectDetailsItem({ artist }) {
     updateLikedArtist(artist._id);
   }
 
- function getArtistName(name) {
-   const searched = fullArtists.find((fullArtist) => fullArtist._id === name);
-   return searched ? searched.name : "Artist Not Found";
- }
-
-  function getArtistImage(name) {
-   const searched = fullArtists.find((fullArtist) => fullArtist._id === name);
-   return searched ? searched.profileImg : "Artist Not Found";
+  function getArtistData(artist, property ) {
+   const searched = fullArtists.find((fullArtist) => fullArtist._id === artist);
+   return searched ? searched[property] : "Artist Not Found";
  }
 
   return (
     <div className="projectItemWrap">
-      <div className="">
-      <div className="img-crop">
-        <img src={getArtistImage(artist.artist)} className="artist-image"></img>
-      </div>
-      <p>{getArtistName(artist.artist)}</p>
+      <div className="check">
+        <div className="img-crop">
+          <img src={getArtistData(artist.artist, "profileImg")}></img>
+        </div>
+        <div className="artist-info">
+          <p>{getArtistData(artist.artist, "name")}</p>
+          <p>{getArtistData(artist.artist, "mainSkill")}</p>
+        </div>
       </div>
 
-      <div className="project-collaborators">
-        <img src="" />
+      <div className="middle">
+        <p className="rated"> {getArtistData(artist.artist, "rate")}</p>
       </div>
+
       <div className="votes">
-        <p>{likes}</p>
-        <button onClick={handleLikes}>up</button>
-        <p>{dislikes}</p>
-        <button onClick={handleDislikes}>down</button>
+
+          <button onClick={handleLikes} className="like">
+            <PiThumbsUpLight style={{ color: "black" }} size={25} />
+          <p>{likes}</p>
+          </button>
+
+        <hr />
+
+          <button onClick={handleDislikes} className="like">
+            <PiThumbsDownLight style={{ color: "black" }} size={25} />
+          <p>{dislikes}</p>
+          </button>
+
+
       </div>
     </div>
   );

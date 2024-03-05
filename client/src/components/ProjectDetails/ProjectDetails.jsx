@@ -27,9 +27,9 @@ export function ProjectDetails() {
       <PageTitle page={projects.projectName} />
 
       <div className="titles">
-        <p>Chosen artists</p>
-        <p>team members</p>
-        <p>votes</p>
+        <p>CHOSEN ARTISTS</p>
+        <p>RATE</p>
+        <p>VOTES</p>
       </div>
 
       <ul className="project-details-List">

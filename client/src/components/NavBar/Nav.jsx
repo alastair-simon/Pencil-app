@@ -1,4 +1,9 @@
 import { Link } from "react-router-dom";
+import { IoPersonAddOutline } from "react-icons/io5";
+import { IoFolderOpenOutline } from "react-icons/io5";
+import { IoIosMenu } from "react-icons/io";
+
+
 import logo from "../../assets/logo.svg";
 import artists from "../../assets/artists.svg";
 import projects from "../../assets/projects.svg";
@@ -25,27 +30,26 @@ export function Nav() {
     >
       <ul>
         <li className="logo">
-          <Link to="/">
+          {/* <Link to="/"> */}
             <img src={logo} className="nav-icon" alt="Logo" />
-          </Link>
+          {/* </Link> */}
         </li>
         <li>
           <Link to="/artistList">
-            <img src={artists} className="nav-icon" alt="Artists" />
+            <IoPersonAddOutline style={{ color: "white" }} size={30} />
           </Link>
         </li>
         <li>
           <Link to="/projectList">
-            <img src={projects} className="nav-icon" alt="Projects" />
+            <IoFolderOpenOutline style={{ color: "white" }} size={30} />
           </Link>
         </li>
 
         <li className="dark-mode">
-          <div className="dark-mode-wrap">
-            <button className="dark-mode-toggle"></button>
-          </div>
+          <IoIosMenu style={{ color: "white" }} size={30} />
         </li>
       </ul>
     </nav>
   );
 }
+// {/* <img src={artists} className="nav-icon" alt="Artists" /> */}

@@ -30,13 +30,13 @@
 }
 
 .form h1 {
-    margin-bottom: 25px;
+    margin-bottom: 40px;
 }
 
 .form div {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px
+    margin-bottom: 30px
 }
 
 .hide-form {
@@ -55,17 +55,18 @@
 }
 
 .form input {
-    max-width: 350px;
+    width: 350px;
     padding: 15px;
     outline: none;
     background: var(--light-grey);
     border:none;
-    border-radius: 10px;
+    border-radius: 30px;
 }
 
 label {
     margin-bottom: 9px;
     font-size: 0.6rem;
+    letter-spacing: 1px;
 }
 
 .create {
@@ -104,5 +105,4 @@ label {
     height: 100%;
     position: absolute;
     z-index: 1;
-    cursor: ;
 }

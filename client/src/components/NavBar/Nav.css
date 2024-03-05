@@ -2,7 +2,7 @@
 
 nav {
     /* height: 100vh; */
-    width: 50px;
+    width: 60px;
     height: 100%;
     background-color: black;
     position: fixed;
@@ -39,22 +39,12 @@ nav a:active {
     margin-bottom: 20px;
 }
 
+.logo:hover {
+    background: none;
+}
+
 .dark-mode {
     position: absolute;
     bottom: 10px;
     left: 15px;
-}
-
-.dark-mode-wrap {
-    width: 20px;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid white;
-}
-
-.dark-mode-toggle {
-    background: var(--white);
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
 }

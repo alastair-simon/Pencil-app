@@ -8,21 +8,27 @@
     padding: 30px;
 }
 
+/* Left side */
+
 .artist-profile-details {
-    justify-self: center;
-    align-self: flex-start;
     width: 420px;
-    height: 980px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-self: flex-start;
     background: var(--light-grey);
     padding: 40px;
+    border-radius: 20px;
 }
 
-.work {
-    flex-grow: 2;
-    background: grey;
+.artist-profile-details h3 {
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.artist-profile-details p {
+    margin-bottom: 10px;
 }
 
 .bg-img-crop {
@@ -40,6 +46,123 @@
     margin: auto;
     top: 0;
     bottom: 0;
+}
 
+.narrow {
+    width: 80%;
+}
+
+.border {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.border p {
+    padding:10px 20px;
+    border-radius: 30px;
+    text-align: center;
+    background: var(--white);
+    color: var(--off-black);
+    border: 1px solid var(--medium-light);
+}
+
+.artist-infos {
+    width: 100%;
+}
+
+.space {
+    margin-bottom:20px;
+}
+
+.artist-infos ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.artist-infos li {
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-align: center;
+    background: var(--light-purple);
+    color: var(--purple);
+}
+
+.space p {
+    margin-bottom: 10px;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* Right side */
+
+.work {
+    margin-left: 20px;
+    padding: 20px;
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.work-links {
+    margin-bottom:20px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.work-links a {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-right: 20px;
+}
+
+.active-link {
+    color: var(--medium-grey);
+}
+
+.story {
+    height: 230px;
+    display: flex;
+    flex-direction: row;
+}
+
+.artistProjectInfo {
+    width: 600px;
+}
+
+.story-img-crop {
+    width:245px;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.story img {
+    width: 100%;
+}
+
+.artistProjectInfo p {
+    font-size: 1.4rem;
+}
+
+.artistProjectInfo p:nth-child(1) {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--medium-purple);
+    margin-bottom: 5px;
+}
+
+.artistProjectInfo p:nth-child(2) {
+    font-weight: 350;
+}
+
+.work hr {
+    margin-top:10px;
+    margin-bottom:30px;
+    color: var(--lighter-grey);
+    border-top: 1px solid var(--lighter-grey);
 }
 

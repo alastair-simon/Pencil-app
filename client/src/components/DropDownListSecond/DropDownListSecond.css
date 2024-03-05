@@ -1,0 +1,68 @@
+/* || Drop down list css */
+
+.dropdownSecond {
+    width: 100%;
+    position: relative;
+    margin-bottom: 40px;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.dropdownSecond button {
+    width: 100%;
+    background-color: var(--purple);
+    padding:20px 35px;
+    border-radius: 40px;
+    color: var(--purple);
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    color: white;
+}
+
+.dropdownSecond button:hover {
+    background-color: #9069fb;
+}
+
+.dropdown-content-second {
+    position: absolute;
+    width: 100%;
+    top:50px;
+    padding: 30px;
+    color: #15171F !important;
+    background-color: #ffffff;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    cursor: pointer;
+    border: 1px solid var(--medium-light);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.dropdown-content-second h4 {
+    margin-bottom: 30px;
+}
+
+.dropdown-content-second li {
+    list-style-type: none;
+    width: 100%;
+    margin-bottom:15px;
+    padding: 10px 25px;
+    border-radius: 20px;
+}
+
+.dropdown-content-second li:hover {
+    background-color: var(--light-grey);
+    /* border-radius: 10px; */
+}
+
+a {
+    text-decoration: none;
+    font-size: 16px;
+    white-space: nowrap;
+}

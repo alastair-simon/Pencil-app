@@ -110,7 +110,7 @@ const hideForm = () => {
         </div>
 
         <div>
-          <label>Image link</label>
+          <label>THUMBNAIL</label>
           <input
             value={newDescription}
             name="description"

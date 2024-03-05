@@ -16,7 +16,6 @@ export function ContextComponent({ children }) {
       } catch (error) {
         console.error("Error fetching artists:", error);
       }
-
       try {
         const projectData = await fetchProjects();
         setFullProjects(projectData);
