@@ -88,6 +88,10 @@ a {
     text-decoration: none;
 }
 
+link {
+    text-decoration: none;
+}
+
 img,
 svg {
     image-rendering: auto;

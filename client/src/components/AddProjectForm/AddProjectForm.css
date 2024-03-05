@@ -1,39 +1,108 @@
 /* || Form styles */
 
-form {
-    width: 350px;
-    height: 400px;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    padding: 40px;
-    border-radius: 6px;
-    margin-right: 20px;
+.form-wrapper {
     position: absolute;
-    margin: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-form div {
+.form {
+    background: white;
+    position: absolute;
+    z-index: 9;
     display: flex;
     flex-direction: column;
-    margin-bottom: 25px
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 15px;
+    margin-right: 20px;
+    position: relative;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
 }
 
-form input {
-    height: 20px;
+.form h1 {
+    margin-bottom: 25px;
+}
+
+.form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px
+}
+
+.hide-form {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    width: 40px;
+    padding: 10px;
+    color: var(--medium-grey);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.hide-form:hover{
+    color: var(--purple);
+}
+
+.form input {
+    max-width: 350px;
     padding: 15px;
     outline: none;
-    border: 2px solid grey;
-    border-radius: 6px;
+    background: var(--light-grey);
+    border:none;
+    border-radius: 10px;
 }
 
 label {
-    margin-bottom: 5px;
-    font-size: 0.7rem;
+    margin-bottom: 9px;
+    font-size: 0.6rem;
+}
+
+.create {
+    width: 100%;
+    background: var(--light-purple);
+    padding: 20px;
+    margin: auto;
+    border-radius: 10px;
+    color: var(--purple);
+}
+
+.create:hover {
+    background: var(--purple);
+    color: white;
+}
+
+.dates {
+    width: 100%;
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between;
+}
+
+.dates section {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.dates input{
+    width: 120px;
+}
+
+.bg-hide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    cursor: ;
 }

@@ -22,10 +22,13 @@ const projectSchema = new Schema({
   projectName: String,
   startDate: Date,
   endDate: Date,
-  artists: {
-    type: mongoose.ObjectId,
-    ref: "Artist",
-  },
+  thumbImage: String,
+  artists: [
+    {
+      type: mongoose.ObjectId,
+      ref: "ArtistLikes",
+    },
+  ],
 });
 
 // const usersSchema = new Schema({

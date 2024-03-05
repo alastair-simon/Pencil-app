@@ -20,5 +20,34 @@
 
 .selected {
     margin-left: 70px;
-    padding: 10px;
+    width: 140px;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 20px;
+    border:none;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: var(--light-grey);
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 380;
+}
+
+.selected select {
+    /* padding: 15px 18px; */
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    all: initial;
+
+}
+
+select:focus {
+    outline: none;
+    outline: none !important;
 }

@@ -1,6 +1,5 @@
 const artistsUrl = "http://localhost:3000/artists";
 const projectsUrl = "http://localhost:3000/projects";
-const artistLikes = "http://localhost:3000/projects/artistLikes";
 
 //Get artists
 export async function fetchArtists() {
@@ -18,6 +17,7 @@ export async function fetchProjects() {
   try {
     const response = await fetch(projectsUrl);
     const jsonData = await response.json();
+    console.log({ jsonData });
     return jsonData;
   } catch (error) {
     console.error(error);
@@ -57,44 +57,44 @@ export async function postProject(project) {
   }
 }
 
-  // Get likes
-  export async function getLikes(id) {
-    try {
-      const response = await fetch(
-        `http://localhost:3000/projects/artistLikes/${id}`
-      );
-      const data = await response.json();
-      // console.log(data)
-      return data;
-    } catch (error) {
-      console.error(error);
-    }
-  };
+// Get likes
+export async function getLikes(id) {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/projects/artistLikes/${id}`
+    );
+    const data = await response.json();
+    // console.log(data)
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-  // Update likes
-  export async function updateLikes(id) {
-    try {
-      await fetch(`http://localhost:3000/projects/artistLikes/like/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
+// Update likes
+export async function updateLikes(id) {
+  try {
+    await fetch(`http://localhost:3000/projects/artistLikes/like/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-  // Update Dislikes
-  export async function updateDislikes(id) {
-    try {
-      await fetch(`http://localhost:3000/projects/artistLikes/dislike/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
+// Update Dislikes
+export async function updateDislikes(id) {
+  try {
+    await fetch(`http://localhost:3000/projects/artistLikes/dislike/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}

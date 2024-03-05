@@ -6,12 +6,47 @@
     /* border: 1px solid var(--medium-light); */
     display: flex;
     flex-direction: column;
+    position: relative;
     border-radius: 12px;
     overflow: hidden;
     cursor:pointer;
 }
 
+/* Hover */
+.hover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.123);
+    opacity: 0;
+    z-index: 1;
+}
+
+.hover:hover {
+    opacity: 1;
+}
+
+.clickable {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: zoom-in;
+}
+
 /* Top half */
+.additional-info {
+    width: 100%;
+    padding: 8px;
+    background: var(--light-purple);
+    text-align: center;
+}
+
+.additional-info p {
+    color: var(--purple);
+    font-size:14px;
+    letter-spacing: 0.5px;
+}
+
 .artistTop {
     height: 200px;
     padding: 20px;
@@ -21,28 +56,38 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: flex-start;
     margin-bottom: 10px;
+    color: black;
 }
 
 .profile-crop {
+    align-self: flex-start;
     width: 80px;
     height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
     overflow: hidden;
-    border-radius: 50px;
-    margin-right:20px ;
+    border-radius: 500px;
+    margin-right:20px;
+    background: grey;
+
 }
 
 .profile-Img {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
     width: 100%;
+    height: auto;
 }
 
-.name-location {
+.name {
+    width: 100px;
     height: 100%;
     font-size: 1.5rem;
-    font-weight: 200;
+    font-weight: 350;
+    flex-grow: 1;
 }
 
 .rate {
@@ -66,6 +111,7 @@
     background: var(--white);
     display: inline-block;
     border: 1px solid var(--medium-light);
+    color: black;
 }
 
 .skills-list {

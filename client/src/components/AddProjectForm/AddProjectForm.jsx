@@ -5,7 +5,8 @@ import { useState } from "react";
 export function AddProject({ formVisibilty, setFormVisibilty, setProjects }) {
   const [newName, setNewName] = useState("");
   const [newDescription, setNewDescription] = useState("");
-  const [newContributors, setNewContributors] = useState(0);
+  const [newStartDate, setNewStartDate] = useState("");
+  const [newEndDate, setNewEndDate] = useState("");
 
   function handleChangeName(e) {
     setNewName(e.target.value);
@@ -15,8 +16,12 @@ export function AddProject({ formVisibilty, setFormVisibilty, setProjects }) {
     setNewDescription(e.target.value);
   }
 
-  function handleChangeContributors(e) {
-    setNewContributors(e.target.value);
+  function handleChangeStartDate(e) {
+    setNewStartDate(e.target.value);
+  }
+
+  function handleChangeEndDate(e) {
+    setNewEndDate(e.target.value);
   }
 
 const hideForm = () => {
@@ -27,31 +32,35 @@ const hideForm = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-
-    if (newDescription && newContributors && newName) {
+    if (newDescription && newStartDate && newEndDate && newName) {
       const newOwner = "user";
       const project = {
         projectOwner: newOwner,
         description: newDescription,
         projectName: newName,
-        numberContributors: newContributors,
+        startDate: newStartDate,
+        endDate: newEndDate
       };
       await postProject(project);
       setProjects((state) => [...state, project]);
 
       setNewDescription("");
       setNewName("");
-      setNewContributors("");
+      setNewStartDate("");
+      setNewEndDate("");
+      setFormVisibilty(false);
     } else {
       alert("Please complete form");
     }
   }
 
   return (
-    <>
+    <div className="form-wrapper">
       <form className="form">
-        <button onClick={hideForm}>x</button>
-        <h2>Create new project</h2>
+        <button className="hide-form" onClick={hideForm}>
+          x
+        </button>
+        <h1>Create new project</h1>
 
         <div>
           <label>ADD PROJECT NAME</label>
@@ -75,20 +84,46 @@ const hideForm = () => {
           ></input>
         </div>
 
-          <div>
-            <label>CONTRIBUTORS</label>
+        <div className="dates">
+          <section>
+            <label> START DATE</label>
             <input
-              type="number"
-              // value={newDescription}
-              name="tentacles"
-              min="10"
-              max="100"
-              onChange={handleChangeContributors}
-            />
-          </div>
+              className="date-input"
+              value={newStartDate}
+              name="startDate"
+              type="datetime-local"
+              onChange={handleChangeStartDate}
+              placeholder="12/07/2019, 00:00:00"
+            ></input>
+          </section>
+          <section>
+            <label>END DATE</label>
+            <input
+              className="date-input"
+              value={newEndDate}
+              name="endDate"
+              type="datetime-local"
+              onChange={handleChangeEndDate}
+              placeholder="12/07/2019, 00:00:00"
+            ></input>
+          </section>
+        </div>
 
-        <button type="submit" onClick={handleSubmit}>Create</button>
+        <div>
+          <label>Image link</label>
+          <input
+            value={newDescription}
+            name="description"
+            type="text"
+            onChange={handleChangeDescription}
+            placeholder="Paste your link.."
+          ></input>
+        </div>
+
+        <button className="create" type="submit" onClick={handleSubmit}>Create</button>
+
       </form>
-    </>
+      <button className="bg-hide" onClick={hideForm}></button>
+    </div>
   );
 }

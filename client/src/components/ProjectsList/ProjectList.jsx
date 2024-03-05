@@ -1,29 +1,42 @@
 import { useState, useEffect } from "react";
-import { fetchProjects } from "../../ApiService.js";
-import "./ProjectList.css";
+import { useMainContext } from "../contextComponent.jsx";
 import { PageTitle } from "../PageTitle/pageTitle.jsx";
 import { ProjectListItem } from "../ProjectListItem/ProjectListItem.jsx";
 import { AddProject } from "../AddProjectForm/AddProjectForm.jsx";
+import "./ProjectList.css";
+
 
 export function ProjectList() {
+  const { fullProjects, setFullProjects } = useMainContext();
   const [projects, setProjects] = useState([]);
   const [formVisibilty, setFormVisibilty] = useState(false);
-
+console.log(fullProjects)
   useEffect(() => {
-    async function fetchAndSet() {
-      const data = await fetchProjects();
-      setProjects(data);
-    }
-    fetchAndSet();
-  }, []);
+    const alphabetSort = fullProjects.sort((a, b) => (a.projectName > b.projectName ? 1 : -1));
+    setProjects(alphabetSort);
+  }, [fullProjects]);
 
+  // Toggle form visibility
   const showForm = () => {
     if (!formVisibilty) {
       setFormVisibilty(true);
     }
   };
 
-  /* create function to randomise thumb image, not same as last */
+  // create function to randomise thumb image, not same as last
+
+  // Sort array
+  function sortProjects(event) {
+    const value = event.target.value;
+    if (value === "start") {
+      projects.sort((a, b) => a.startDate.localeCompare(b.startDate));
+    } else if (value === "end") {
+      projects.sort((a, b) => a.endDate.localeCompare(b.endDate));
+    } else if (value === "reset") {
+      projects.sort((a, b) => (a.projectName > b.projectName ? 1 : -1));
+    }
+    setProjects([...projects]);
+  }
 
   return (
     <div className="wrapper">
@@ -36,10 +49,10 @@ export function ProjectList() {
       ) : null}
 
       <div className="filter-addproject">
-        <select name="pets" className="selected">
-          <option value="">Filter</option>
-          <option value="dog">Start date</option>
-          <option value="cat">End date</option>
+        <select name="filters" className="selected" onChange={sortProjects}>
+          <option value="reset">Filter</option>
+          <option value="start">Start date</option>
+          <option value="end">End date</option>
         </select>
 
         <button className="add-project" onClick={showForm}>

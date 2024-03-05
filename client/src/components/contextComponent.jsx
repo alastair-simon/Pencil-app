@@ -6,15 +6,15 @@ const ArtistListContext = createContext({});
 
 export function ContextComponent({ children }) {
   const [fullArtists, setFullArtists] = useState([]);
-  const [projects, setProjects] = useState([]);
+  const [fullProjects, setFullProjects] = useState([]);
 
   useEffect(() => {
     async function fetchAndSet() {
       try {
         const artistData = await fetchArtists();
         setFullArtists(artistData);
-        // const projectData = fetchProjects();
-        // setProjects(projectData)
+        const projectData = await fetchProjects();
+        setFullProjects(projectData)
       } catch (error) {
         console.error("Error fetching artists:", error);
       }
@@ -22,8 +22,9 @@ export function ContextComponent({ children }) {
     fetchAndSet();
   }, []);
 
+  
   return (
-    <ArtistListContext.Provider value={{ fullArtists, setFullArtists }}>
+    <ArtistListContext.Provider value={{ fullArtists, setFullArtists, fullProjects, setFullProjects }}>
       {children}
     </ArtistListContext.Provider>
   );

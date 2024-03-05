@@ -15,10 +15,12 @@ export function DropDownList({ onSelectProject }) {
     fetchAndSet();
   }, []);
 
+  // Toggle dropdown
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  // Handle click
   const handleProjectSelect = (projectId) => {
     setSelectedProject(projectId);
     onSelectProject(projectId);
@@ -27,7 +29,7 @@ export function DropDownList({ onSelectProject }) {
 
   return (
     <div className="dropdown">
-      <button onClick={toggleDropdown}>ADD TO LIST</button>
+      <button onClick={toggleDropdown}>Add</button>
       {isDropdownOpen ? (
         <>
           <div className="dropdown-content">

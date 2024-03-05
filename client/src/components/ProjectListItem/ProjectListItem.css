@@ -9,13 +9,14 @@
 .projectThumb {
     width: 270px;
     height: 170px;
-    background: rgb(157, 78, 91);
-    border-radius: 10px;
+    background: var(--purple);
+    border-radius: 30px;
     margin-bottom: 10px;
 }
 
 .projectThumbWrap h3 {
     font-size: 1.2rem;
+    font-weight: 400;
     margin-bottom: 3px;
 }
 

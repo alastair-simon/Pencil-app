@@ -30,9 +30,10 @@ exports.addArtist = async (req, res) => {
 //Get projects
 exports.getProjects = async (req, res) => {
   try {
-    const event = await Projects.find({}).populate("artists");
+    const projects = await Projects.find().populate("artists");
+    console.log({ projects });
     res.status(200);
-    res.send(event);
+    res.send(projects);
   } catch (error) {
     console.log(error);
     res.status(500); // Internal server error
@@ -44,7 +45,7 @@ exports.getProjects = async (req, res) => {
 exports.getOneProject = async ({ params }, res) => {
   try {
     const { id } = params;
-    const project = await ArtistLikes.find({ project: id })
+    const project = await ArtistLikes.find({ project: id });
     res.status(200);
     res.send(project);
   } catch (error) {
@@ -110,9 +111,9 @@ exports.getArtistLikes = async (req, res) => {
 exports.updateLikes = async ({ params }, res) => {
   try {
     const { id } = params;
-    console.log(id)
+    console.log(id);
     const artist = await ArtistLikes.findOneAndUpdate(
-      { _id : id },
+      { _id: id },
       { $inc: { numberOfLikes: 1 } },
       { new: true }
     );
@@ -130,9 +131,9 @@ exports.updateLikes = async ({ params }, res) => {
 exports.updateDislikes = async ({ params }, res) => {
   try {
     const { id } = params;
-    console.log(id)
+    console.log(id);
     const artist = await ArtistLikes.findOneAndUpdate(
-      { _id : id },
+      { _id: id },
       { $inc: { numberOfDislikes: 1 } },
       { new: true }
     );

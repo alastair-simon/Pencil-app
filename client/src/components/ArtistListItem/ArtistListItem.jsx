@@ -1,35 +1,51 @@
 import "./ArtistListItem.css";
 import { addArtist } from "../../ApiService.js";
 import { DropDownList } from "../DropDownList/DropDownList.jsx";
+import { Link } from "react-router-dom";
 
 export function ArtistListItem({ artist }) {
 
+  //Break firstName lastName
+  function breakName(name) {
+    let splitName = name.split(" ");
+    return splitName;
+  }
+
+  // Add artist
   async function handleClick(projectId) {
-     //get context check if artist is already in list
      await addArtist(artist, projectId);
    }
 
   return (
     <div className="artistContainer">
+      <div className="hover">
         <DropDownList onSelectProject={handleClick} className="add" />
+          <Link to={`/artistDetails/${artist._id}`}><div className="clickable"></div></Link>
+      </div>
+
+      <div className="additional-info">
+        <p>{artist.rate.toUpperCase()}</p>
+      </div>
+
       <div className="artistTop">
         <div className="profile-details">
           <div className="profile-crop">
             <img src={artist.profileImg} className="profile-Img"></img>
           </div>
-          <div className="name-location">
-            <h4>{artist.name}</h4>
-            {/* <h4>{artist.location}</h4> */}
-          </div>
+          <h4 className="name">
+            {breakName(artist.name).map((namePart, index) => (
+              <span key={index}>
+                {namePart}
+                <br />
+              </span>
+            ))}
+          </h4>
         </div>
-        {/* <div className="rate">
-          <p>{artist.rate}</p>
-        </div> */}
-        <div>
-          <div className="fill">
-            <li className="main-skill">{artist.mainSkill}</li>
-          </div>
-          {/* <ul className="skills-list">
+
+        <div className="fill">
+          <li className="main-skill">{artist.mainSkill}</li>
+        </div>
+        {/* <ul className="skills-list">
             {artist.skills.map((skill, i) => {
               return (
                 <li key={i}>
@@ -38,7 +54,6 @@ export function ArtistListItem({ artist }) {
               );
             })}
           </ul> */}
-        </div>
       </div>
 
       <div className="artistBottom">

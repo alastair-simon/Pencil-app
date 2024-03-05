@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { Suspense } from "react";
 import { ArtistListItem } from "../ArtistListItem/ArtistListItem.jsx";
 import { PageTitle } from "../PageTitle/pageTitle.jsx";
 import { SearchBar } from "../SearchBar/SearchBar.jsx";
 import { useMainContext } from "../contextComponent.jsx";
+import {Loading} from "../Loading/Loading.jsx";
 import "./ArtistList.css";
 
 export function ArtistList() {
@@ -24,19 +26,29 @@ export function ArtistList() {
         artist[filter].toLowerCase().startsWith(searchValue)
       );
      setArtists(searched);
-    } 
+    }
   }
 
   return (
-    <div className="wrapper">
-      <PageTitle page="Collection"  />
-      <SearchBar filterSearched={filterSearched} filter={filter} setFilter={setFilter} />
+    <Suspense fallback={<Loading/>}>
 
-      <ul className="list">
-        {artists.map((artist) => {
-          return <ArtistListItem artist={artist} key={artist._id} />;
-        })}
-      </ul>
-    </div>
+      <div className="wrapper">
+        <PageTitle page="Collection" />
+        <SearchBar
+          filterSearched={filterSearched}
+          filter={filter}
+          setFilter={setFilter}
+        />
+        <ul className="list">
+          {artists.map((artist) => {
+            return (
+              <div key={artist._id}>
+                  <ArtistListItem artist={artist} />
+              </div>
+            );
+          })}
+        </ul>
+      </div>
+    </Suspense>
   );
 }

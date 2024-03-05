@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getLikes } from "../../ApiService.js";
 import { ProjectDetailsItem } from "../ProjectDetailsItem/ProjectDetailsItem.jsx";
 import { PageTitle } from "../PageTitle/pageTitle.jsx";
 import "./ProjectDetails.css";
-import { fetchProjects } from "../../ApiService.js";
+import { getLikes, fetchProjects } from "../../ApiService.js";
 
 
 export function ProjectDetails() {
@@ -32,7 +31,7 @@ export function ProjectDetails() {
         <p>team members</p>
         <p>votes</p>
       </div>
-      
+
       <ul className="project-details-List">
         {likedArtists.map((artist, i) => {
           return <ProjectDetailsItem key={i} artist={artist} />;
