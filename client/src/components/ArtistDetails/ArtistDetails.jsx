@@ -18,6 +18,8 @@ export function ArtistDetails() {
         }
     }, [fullArtists]);
 
+
+
     return (
       <div className="wrapper">
         <PageTitle page={chosenArtist.name} />
@@ -65,7 +67,7 @@ export function ArtistDetails() {
                   <li key={i}>
                     <article class="story">
                       <div className="story-img-crop">
-                        <img src={item.images[i]}></img>
+                        <img src={item.images}></img>
                       </div>
                       <div className="artistProjectInfo">
                         <p>PROJECT</p>

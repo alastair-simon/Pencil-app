@@ -28,27 +28,30 @@ export function Nav() {
       // onMouseEnter={handleMouseEnter}
       // onMouseLeave={handleMouseLeave}
     >
-      <ul>
-        <li className="logo">
+        <div className="logo">
           {/* <Link to="/"> */}
-            <img src={logo} className="nav-icon" alt="Logo" />
+          <img src={logo} className="nav-icon" alt="Logo" />
           {/* </Link> */}
-        </li>
-        <li>
-          <Link to="/artistList">
-            <IoPersonAddOutline style={{ color: "white" }} size={30} />
-          </Link>
-        </li>
-        <li>
-          <Link to="/projectList">
-            <IoFolderOpenOutline style={{ color: "white" }} size={30} />
-          </Link>
-        </li>
+      </div>
+        <hr/>
 
-        <li className="dark-mode">
+        <div>
+          <Link to="/artistList">
+            <IoPersonAddOutline style={{ color: "white" }} size={25} />
+          </Link>
+      </div>
+        <hr />
+
+        <div>
+          <Link to="/projectList">
+            <IoFolderOpenOutline style={{ color: "white" }} size={25} />
+          </Link>
+        </div>
+         <hr />
+
+        <div className="dark-mode">
           <IoIosMenu style={{ color: "white" }} size={30} />
-        </li>
-      </ul>
+        </div>
     </nav>
   );
 }

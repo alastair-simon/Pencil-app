@@ -31,8 +31,6 @@ export function ArtistList() {
   }
 
   return (
-    <Suspense fallback={<Loading/>}>
-
       <div className="wrapper">
         <PageTitle page="Collection" />
         <SearchBar
@@ -50,6 +48,5 @@ export function ArtistList() {
           })}
         </ul>
       </div>
-    </Suspense>
   );
 }

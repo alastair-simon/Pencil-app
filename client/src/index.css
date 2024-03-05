@@ -6,15 +6,15 @@ body {
     font-family: "Space Grotesk", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    margin: 0;
+    padding: 0;
 }
 
 html {
     box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
+* {
     box-sizing: inherit;
     margin: 0;
     padding: 0;

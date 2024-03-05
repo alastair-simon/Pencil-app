@@ -9,21 +9,29 @@ nav {
     z-index: 999999999;
     text-align: center;
     transition: width 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-nav ul {
+nav hr {
     width: 100%;
-    margin-top: 10px;
+    border: 1px solid rgb(41, 41, 41);
 }
 
-nav ul li {
+nav div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     list-style-type: none;
-    margin-bottom: 10px;
-    height: 40px;
-    text-align: center;
+    width: 60px;
+    height: 55px;
+
 }
 
-nav ul li:hover {
+nav div:hover {
     background: var(--purple);
 }
 
@@ -36,7 +44,7 @@ nav a:active {
 }
 
 .logo {
-    margin-bottom: 20px;
+
 }
 
 .logo:hover {
@@ -44,7 +52,6 @@ nav a:active {
 }
 
 .dark-mode {
-    position: absolute;
-    bottom: 10px;
-    left: 15px;
+    background: var(--purple);
+    margin-top: auto;
 }
