@@ -4,7 +4,7 @@ import { IoFolderOpenOutline } from "react-icons/io5";
 import { IoIosMenu } from "react-icons/io";
 
 
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/logo-.svg";
 import artists from "../../assets/artists.svg";
 import projects from "../../assets/projects.svg";
 import "./Nav.css";
@@ -30,7 +30,7 @@ export function Nav() {
     >
         <div className="logo">
           {/* <Link to="/"> */}
-          <img src={logo} className="nav-icon" alt="Logo" />
+          <img src={logo} className="nav-icon logo" alt="Logo" />
           {/* </Link> */}
       </div>
         <hr/>

@@ -20,7 +20,7 @@ export function ProjectList() {
       );
       setProjects(alphabetSort);
       setIsLoading(false);
-    }, 600);
+    }, 1200);
     return () => clearTimeout(delay);
   }, [fullProjects]);
 

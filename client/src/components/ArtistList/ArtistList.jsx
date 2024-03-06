@@ -18,7 +18,7 @@ export function ArtistList() {
      const delay = setTimeout(() => {
        setArtists(fullArtists);
        setIsLoading(false);
-     }, 600);
+     }, 1500);
 
      return () => clearTimeout(delay);
    }, [fullArtists]);

@@ -1,5 +1,5 @@
 import "./Loading.css";
-import spinner from "../../assets/Iphone-spinner-2.gif";
+import spinner from "../../assets/load.gif";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -8,7 +8,7 @@ export function Loading() {
     <AnimatePresence>
       <motion.div
         className="loading"
-        initial={{ opacity: 1 }} 
+        initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
         <div className="load-wrap">
