@@ -17,22 +17,18 @@ export function ProjectDetails() {
       try {
         const likes = await getLikes(id);
         setLikedArtists(likes);
-
         const projects = await fetchProjects();
         const projectTitle = projects.find((project) => project._id === id);
         setProjects(projectTitle);
-
-        // Set isLoading to false after data is fetched
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setIsLoading(false); // Handle error by setting isLoading to false
+        setIsLoading(false);
       }
     }, 600);
 
     return () => clearTimeout(delay);
   }, [id]);
-
 
   return (
     <div className="wrapper">

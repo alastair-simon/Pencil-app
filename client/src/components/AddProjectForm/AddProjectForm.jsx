@@ -2,11 +2,12 @@ import { postProject } from "../../ApiService";
 import "./AddProjectForm.css";
 import { useState } from "react";
 
-export function AddProject({ formVisibilty, setFormVisibilty, setProjects }) {
+export function AddProject({ formVisibility, setFormVisibilty, setProjects }) {
   const [newName, setNewName] = useState("");
   const [newDescription, setNewDescription] = useState("");
   const [newStartDate, setNewStartDate] = useState("");
   const [newEndDate, setNewEndDate] = useState("");
+  const [newThumbnail, setNewThumbnail] = useState("");
 
   function handleChangeName(e) {
     setNewName(e.target.value);
@@ -24,22 +25,35 @@ export function AddProject({ formVisibilty, setFormVisibilty, setProjects }) {
     setNewEndDate(e.target.value);
   }
 
-const hideForm = () => {
-  if (formVisibilty) {
-    setFormVisibilty(false);
+  function handleChangeThumbnail(e) {
+    setNewThumbnail(e.target.value);
   }
-};
+
+  function hideForm() {
+    if (formVisibility) {
+      setFormVisibilty(false);
+    } else {
+      setFormVisibilty(true);
+    }
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (newDescription && newStartDate && newEndDate && newName) {
+    if (
+      newDescription &&
+      newStartDate &&
+      newEndDate &&
+      newName &&
+      newThumbnail
+    ) {
       const newOwner = "user";
       const project = {
         projectOwner: newOwner,
         description: newDescription,
         projectName: newName,
         startDate: newStartDate,
-        endDate: newEndDate
+        endDate: newEndDate,
+        thumbImage: newThumbnail,
       };
       await postProject(project);
       setProjects((state) => [...state, project]);
@@ -48,9 +62,10 @@ const hideForm = () => {
       setNewName("");
       setNewStartDate("");
       setNewEndDate("");
-      setFormVisibilty(false);
+      setNewThumbnail("");
+      hideForm();
     } else {
-      alert("Please complete form");
+      alert("Please complete the form");
     }
   }
 
@@ -112,16 +127,17 @@ const hideForm = () => {
         <div>
           <label>THUMBNAIL</label>
           <input
-            value={newDescription}
-            name="description"
+            value={newThumbnail}
+            name="thumbnail"
             type="text"
-            onChange={handleChangeDescription}
+            onChange={handleChangeThumbnail}
             placeholder="Paste your link.."
           ></input>
         </div>
 
-        <button className="create" type="submit" onClick={handleSubmit}>Create</button>
-
+        <button className="create" type="submit" onClick={handleSubmit}>
+          Create
+        </button>
       </form>
       <button className="bg-hide" onClick={hideForm}></button>
     </div>

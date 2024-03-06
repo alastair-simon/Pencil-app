@@ -50,7 +50,8 @@ export function ProjectList() {
       <PageTitle page="Projects" />
       {formVisibilty ? (
         <AddProject
-          visiblity={(formVisibilty, setFormVisibilty)}
+          formVisibilty={formVisibilty}
+          setFormVisibilty={setFormVisibilty}
           setProjects={setProjects}
         />
       ) : null}

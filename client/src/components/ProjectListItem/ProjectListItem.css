@@ -12,6 +12,8 @@
     background: var(--purple);
     border-radius: 30px;
     margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
 }
 
 .projectThumbWrap h3 {
@@ -27,5 +29,8 @@
     text-transform: capitalize;
 }
 
-
-
+.projectThumb img {
+    width: 100%;
+    position: absolute;
+    top: 0;bottom: 0;
+}
