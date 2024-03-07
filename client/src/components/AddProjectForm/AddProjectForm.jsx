@@ -9,6 +9,8 @@ export function AddProject({ formVisibility, setFormVisibilty, setProjects }) {
   const [newEndDate, setNewEndDate] = useState("");
   const [newThumbnail, setNewThumbnail] = useState("");
 
+
+  //Handle inputs
   function handleChangeName(e) {
     setNewName(e.target.value);
   }
@@ -29,6 +31,7 @@ export function AddProject({ formVisibility, setFormVisibilty, setProjects }) {
     setNewThumbnail(e.target.value);
   }
 
+  //Hide form function
   function hideForm() {
     if (formVisibility) {
       setFormVisibilty(false);
@@ -37,6 +40,7 @@ export function AddProject({ formVisibility, setFormVisibilty, setProjects }) {
     }
   }
 
+  //Add to db and update state
   async function handleSubmit(e) {
     e.preventDefault();
     if (
@@ -57,7 +61,6 @@ export function AddProject({ formVisibility, setFormVisibilty, setProjects }) {
       };
       await postProject(project);
       setProjects((state) => [...state, project]);
-
       setNewDescription("");
       setNewName("");
       setNewStartDate("");

@@ -13,7 +13,6 @@ export function ArtistDetails() {
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
 
-
   useEffect(() => {
       const delay = setTimeout(() => {
         const artist = fullArtists.find((fullArtist) => fullArtist._id === id);
@@ -32,7 +31,6 @@ export function ArtistDetails() {
       ) : (
         <>
           <PageTitle page="Artists" />
-
           <div className="artist-content">
             <div className="artist-profile-details">
               <div className="bg-img-crop">

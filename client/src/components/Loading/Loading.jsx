@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export function Loading() {
 
+//Lottie animation settings
 const defaultOptions = {
   loop: true,
   autoplay: true,

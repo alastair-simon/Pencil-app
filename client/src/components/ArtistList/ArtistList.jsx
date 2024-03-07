@@ -23,9 +23,9 @@ export function ArtistList() {
      return () => clearTimeout(delay);
    }, [fullArtists]);
 
+  //Filter searched artists
   function filterSearched(e) {
     const searchValue = e.target.value.toLowerCase();
-
     if (!searchValue) {
       setArtists(fullArtists);
     } else {

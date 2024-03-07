@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export function ArtistListItem({ artist }) {
 
-  //Break firstName lastName
+  //Break firstName-lastName
   function breakName(name) {
     let splitName = name.split(" ");
     return splitName;
@@ -45,15 +45,6 @@ export function ArtistListItem({ artist }) {
         <div className="fill">
           <li className="main-skill">{artist.mainSkill}</li>
         </div>
-        {/* <ul className="skills-list">
-            {artist.skills.map((skill, i) => {
-              return (
-                <li key={i}>
-                  <p>{skill}</p>
-                </li>
-              );
-            })}
-          </ul> */}
       </div>
 
       <div className="artistBottom">
